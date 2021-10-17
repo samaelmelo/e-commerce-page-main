@@ -1,5 +1,5 @@
-import React from 'react';
-import {Container, OtherImages, ContainerDescriptions, Buttons} from './styles'
+import React, {useState} from 'react';
+import {Container, OtherImages, ContainerDescriptions, Buttons, Amount, Discount} from './styles'
 import {Images} from "../../services/datas"
 import minus from "../../assets/images/icon-minus.svg"
 import plus from "../../assets/images/icon-plus.svg"
@@ -7,8 +7,10 @@ import cart from "../../assets/images/icon-cart.svg"
  
 export const Main = () => {
 
+  const [value , setValue] = useState(5)
   const imageProductOne  = Images[0].img
   
+
   return (
 
     <>
@@ -31,33 +33,38 @@ export const Main = () => {
         </div>
 
         <ContainerDescriptions>
-            <span>sneakers company</span>
+          <div className="center">
+
+
+            <strong>sneaker company</strong>
             <h1>Fall limited Edition Sneakers</h1>
             <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
 
-            <div className='amount'>
+            <Amount>
               <strong>
                 {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(125)}
               </strong>
+
               <span>50%</span>
 
-              <div className="discount">
+            </Amount>
+
+            <Discount>
                 <span style={{textDecoration: 'line-through'}}>{new Intl.NumberFormat('en-US',{style:'currency', currency: 'USD'}).format(250)}</span>
-              </div>
-            </div>
+             </Discount>
 
             <Buttons>
                   <div className="bntRemoveOrAdd">
-                    <button>
+                    <button onClick={()=> setValue(value < 1 ? value : value - 1)}>
                       <img src={minus} alt="minus" />
                     </button>
-                    <span>0</span>
-                    <button>
+                    <strong>{value}</strong>
+                    <button onClick={()=> setValue(value + 1)}>
                         <img src={plus} alt="next" />
                     </button>
                   </div>
                   
-                  <div className="AddToCart">
+                  <div className="addToCart">
                       <button>
                           <img src={cart} alt="" />
                           Add to cart
@@ -65,7 +72,7 @@ export const Main = () => {
                   </div>
             </Buttons>
 
-
+          </div>
         </ContainerDescriptions>
 
 
