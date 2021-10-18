@@ -4,218 +4,210 @@ export const Container = styled.main`
   width: min(1080px, 100%);
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin:0 auto;
+  grid-template-columns: 1fr 1fr;
 
-  .containerImages{
+  margin: 0 auto;
+
+
+
+  .containerImages {
+    height: 30rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:.5rem;
-   
+    padding: 1rem 2rem;
 
-    .mainImage{
+
+
+    .mainImage {
       width: 100%;
       height: 80%;
       display: flex;
       justify-content: center;
       margin-bottom: 1rem;
-      padding-inline:1.5rem;
+      /* padding-inline: 1.5rem; */
       cursor: pointer;
 
-      img{
+      img {
         width: 100%;
         object-fit: cover;
         border-radius: 0.4rem;
       }
     }
-
   }
 
-    .containerImages, .containerDescriptions{
-      height: 30rem;
-     
-    }
-    /* .containerImages + .containerDescriptions{
-      border-left: 1px solid red;
-
-    } */
   
+  @media (max-width: 860px){
+    
+        grid-template-columns: 1fr;
+      
+    }
 `
 
 export const OtherImages = styled.div`
+  width: 100%;
+
   display: flex;
-  justify-content:center;
-  gap: 2rem;
-    
-    .productSneakers{
-      width: 5.22rem;
-      position: relative;
-      cursor: pointer;
-      
-      &:before{
-        content: '';
-        /* background-color: red; */
-        position: absolute;
-        top:0;
-        bottom:0;
-        right: 0;
-        left: 0;
-        transition: .3s ease;
-        
-      }
+  justify-content: space-between;
 
-      img{
-        width: 100%;
-        border-radius: 0.3rem;
-      }
+
+  .productSneakers {
+    max-width: 5.22rem;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0.5rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transition: background 0.3s ease;
     }
 
-    .productSneakers:hover:before{
-      background-color: #fff;
-      filter: opacity(.5)
-
+    img {
+      max-width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      object-fit: fill;
     }
+  }
 
+  .productSneakers:hover:before {
+    background-color: #fff;
+    filter: opacity(0.7);
+    border: 3px solid var(--color-orange);
+    border-radius: 0.5rem;
+  }
+
+  .productSneakers.active:before {
+    background-color: #fff;
+    filter: opacity(0.7);
+    border: 3px solid var(--color-orange);
+    border-radius: 0.5rem;
+  }
 `
-
 
 export const ContainerDescriptions = styled.div`
   height: 30rem;
-  /* border: 1px solid red; */
-  padding:0 4rem 2rem 2rem;
-  
-  .center{
-    width:100%;
-    height:100%;
+  padding-inline: 2rem;
+
+  .center {
+    /* margin: 0 auto; */
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     gap: 1rem;
     padding-block: 2rem;
 
+    & > strong:first-child {
+      color: var(--color-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.7rem;
+      display: inline-block;
+    }
 
-    
-  & > strong:first-child{
-    color: var(--color-orange);
-    text-transform: uppercase;
-    letter-spacing:2px;
-    font-size: .7rem;
-    display: inline-block;
-  }
+    h1 {
+      text-transform: capitalize;
+      line-height: 2.3rem;
+      color: var(--color-dark-blue);
+      font-weight: 700;
+    }
 
-  h1{
-    text-transform: capitalize;
-    line-height: 2.3rem;
-    color: var(--color-dark-blue);
-    font-weight: 700;
-  }
-
-  p{
-    font-size: .8rem;
-    font-weight: 500;
-    color: var(--color-dark-grayish-blue);
-
-  }
-
-  
+    p {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-dark-grayish-blue);
+    }
   }
 `
 
-
-
 export const Amount = styled.div`
   display: flex;
-  align-items:center;
+  align-items: center;
 
-   strong{
+  strong {
     font-size: 1.4rem;
     margin-right: 1rem;
     color: var(--color-dark-blue);
   }
 
-  strong + span{
+  strong + span {
     background-color: var(--color-pale-orange);
     color: var(--color-orange);
     font-weight: 700;
-    font-size: .8rem;
-    padding: .25rem .5rem;
-    border-radius: .25rem;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
   }
-
 `
 
 export const Discount = styled.div`
-
-  
-span{
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--color-grayish-blue)
-      
-    }
+  span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-grayish-blue);
+  }
 `
-
-
 
 export const Buttons = styled.div`
   display: flex;
   gap: 1rem;
   width: 100%;
-  
+  min-width: 22rem;
 
-  .bntRemoveOrAdd{
+  .bntRemoveOrAdd {
     display: flex;
-    align-items:center;
-    justify-content:space-between;
-    width:30%;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 30%;
     height: 2.7rem;
 
-
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background: var(--color-light-grayish-blue);
 
-
-    button{
-      padding: .5rem;
+    button {
+      padding: 0.5rem;
       display: flex;
-      align-items:center;
+      align-items: center;
       border: none;
       background: transparent;
     }
   }
 
-
-
-  .addToCart{
-    width: 50%;
+  .addToCart {
+    min-width: 50%;
     height: 2.7rem;
     display: flex;
 
-
-    button{
+    button {
       width: 100%;
       background: var(--color-orange);
       border: none;
-      border-radius:.25rem;
+      border-radius: 0.25rem;
       color: var(--color-white);
       font-weight: 700;
 
       display: flex;
-      align-items:center;
-      justify-content:center;
+      align-items: center;
+      justify-content: center;
       gap: 1rem;
 
-      box-shadow: 1px 5px 8px rgba(0,0,0,0.33);
-      transition: .2s ease;
+      box-shadow:2px 5px 9px 2px #f2c8a9;;
+      transition: 0.2s ease;
 
-
-      &:hover{
-        filter: brightness(.95);
+      &:hover {
+        filter: brightness(0.95);
       }
 
-      img{
+      img {
         color: var(--color-white);
         width: 1.1rem;
       }

@@ -32,17 +32,64 @@ export const Navigation = styled.nav`
     display: flex;
 
     li{ 
+      position: relative;
+
+      &:before{
+        position: absolute;
+        content: '';
+        width: 0%;
+        height: 3px;
+        background: var(--color-orange);
+        bottom: -2.32rem;
+        filter: opacity(0);
+        transform: translateX(-3rem);
+        transition: transform .3s ease;
+      }
+
       a{
         color: var(--color-grayish-blue);
-        font-weight:700;
+        font-weight:400;
+        transition: color .2s ease;
 
+        &:hover{
+          color: var(--color-dark-grayish-blue);
+
+        }
       }
 
     }
 
+    li:hover:before{
+      width: 100%;
+      transform: translateX(0);
+      filter: opacity(1);
+    }
+
+
+    li.active{
+      position: relative;
+
+      a{
+        color: var(--color-dark-grayish-blue);
+      }
+
+      &:before{
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 3px;
+      filter: opacity(1);
+      transform: translateX(0);
+      background: var(--color-orange);
+      bottom: -2.32rem;
+      transition: transform .3s ease;
+
+      }
+    }
+
     /* todo li que tiver outro li do lado colocar margin left */
    li+li{
-     margin-left: 1rem;
+     margin-left: 1.5rem;
    }
   }
 
