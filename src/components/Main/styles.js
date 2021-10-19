@@ -80,7 +80,7 @@ export const OtherImages = styled.div`
   .productSneakers:hover:before {
     background-color: #fff;
     filter: opacity(0.7);
-    border: 3px solid var(--color-orange);
+    /* border: 3px solid var(--color-orange); */
     border-radius: 0.5rem;
   }
 
@@ -104,7 +104,7 @@ export const ContainerDescriptions = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    padding-block: 2rem;
+    padding: 2rem;
 
     & > strong:first-child {
       color: var(--color-orange);
@@ -122,7 +122,7 @@ export const ContainerDescriptions = styled.div`
     }
 
     p {
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--color-dark-grayish-blue);
     }
@@ -132,6 +132,7 @@ export const ContainerDescriptions = styled.div`
 export const Amount = styled.div`
   display: flex;
   align-items: center;
+  
 
   strong {
     font-size: 1.4rem;
@@ -143,7 +144,7 @@ export const Amount = styled.div`
     background-color: var(--color-pale-orange);
     color: var(--color-orange);
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
   }
@@ -151,7 +152,7 @@ export const Amount = styled.div`
 
 export const Discount = styled.div`
   span {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-grayish-blue);
   }
@@ -172,6 +173,7 @@ export const Buttons = styled.div`
 
     border-radius: 0.25rem;
     background: var(--color-light-grayish-blue);
+    box-shadow: 2px 5px 9px rgba(0,0,0,0.1);
 
     button {
       padding: 0.5rem;

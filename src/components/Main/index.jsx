@@ -7,11 +7,13 @@ import { Buttons, Amount,Discount} from './styles'
 import minus from '../../assets/images/icon-minus.svg'
 import plus from '../../assets/images/icon-plus.svg'
 import cart from '../../assets/images/icon-cart.svg'
+import {useCounter} from "../../Hook/useCounter"
+
 
 export const Main = () => {
   
   const [imageMain, setImageMain] = useState(Images[0].img)
-  const [value, setValue] = useState(0)
+  const {amount, setAmount } = useCounter(0)
 
   const changeImageMiniatureOfDefault = (ev,item) => {
     const divs = document.querySelectorAll('.productSneakers')
@@ -22,11 +24,12 @@ export const Main = () => {
    
     return item.miniature ? setImageMain(item.img) : ''
   }
-
+ 
   return (
     <>
       <Container>
         <div className="containerImages">
+
           <div className="mainImage">
             <img src={imageMain} alt="foto" />
           </div>
@@ -77,11 +80,11 @@ export const Main = () => {
 
             <Buttons>
               <div className="bntRemoveOrAdd">
-                <button onClick={() => setValue(value < 1 ? value : value - 1)}>
+                <button onClick={() => setAmount(amount < 1 ? amount : amount - 1)}>
                   <img src={minus} alt="minus" />
                 </button>
-                <strong>{value}</strong>
-                <button onClick={() => setValue(value + 1)}>
+                <strong>{amount}</strong>
+                <button onClick={() => setAmount(amount + 1)}>
                   <img src={plus} alt="next" />
                 </button>
               </div>

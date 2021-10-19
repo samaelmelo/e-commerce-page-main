@@ -6,8 +6,8 @@ import imgeProductTwoThumbnail from '../assets/images/image-product-2-thumbnail.
 import imgeProductThree from '../assets/images/image-product-3.jpg'
 import imgeProductThreeThumbnail from '../assets/images/image-product-3-thumbnail.jpg'
 import imgeProductFour from '../assets/images/image-product-4.jpg'
-import imgeProductFourThumbnail from '../assets/images/image-product-4-thumbnail.jpg'
-  
+import imgeProductFourThumbnail from '../assets/images/image-product-4-thumbnail.jpg' 
+
 export const Images = [
   {
     img: imgeProductOne,
@@ -30,3 +30,4 @@ export const Images = [
     alt: 'Product Sneakers'
   }
 ]
+

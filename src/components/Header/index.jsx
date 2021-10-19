@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
 import { Container, Navigation, ShoppingCarAndAvatar } from './styles'
+import { CartWrapper } from './styles'
 import imgAvatar from '../../assets/images/avatar.png'
 import imgIconCart from '../../assets/images/icon-cart.svg'
+import { useCounter } from '../../Hook/useCounter'
+import imgIconDelete from "../../assets/images/icon-delete.svg"
+import {Images} from "../../services/datas"
+
 
 export const Header = () => {
   useEffect(() => {
@@ -22,6 +27,8 @@ export const Header = () => {
 
     preventDefault()
   }, [])
+
+  const {amount, setMount} = useCounter()
 
   return (
     <Container>
@@ -54,6 +61,49 @@ export const Header = () => {
 
         <div className="avatar">
           <img src={imgAvatar} alt="Photograph of a person" />
+
+
+
+          <CartWrapper>
+            <h4>Cart</h4>
+            
+            {amount === 0 ? 
+            <div className='empty'>
+              <p>Your cart is empty.</p>
+            </div>
+            :
+            <div className='full'>
+              <div className='boxImage'>
+                <img src={Images[0].miniature} alt="img" />
+              </div>
+              
+              <div className='descritionOfProduct'>
+                <h3 >Fall Limited Edition Sneakers</h3>
+
+                <div>
+                   <span>
+                       {new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD'
+                    }).format(125)}
+                      x 3<strong> {new Intl.NumberFormat('en-US', {
+                      style: 'currency',
+                      currency: 'USD'
+                    }).format(375)}</strong>
+                  </span> 
+                </div>
+              </div>
+
+              <button>
+                  <img src={imgIconDelete} alt ='lixo'/>
+              </button>
+
+            </div>
+
+          }
+
+          </CartWrapper>
+
         </div>
       </ShoppingCarAndAvatar>
     </Container>

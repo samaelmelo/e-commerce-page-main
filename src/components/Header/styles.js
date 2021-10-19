@@ -110,15 +110,86 @@ export const ShoppingCarAndAvatar = styled.div`
     }
 
     .avatar{
-
+      position:relative;
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 50%;
+      border:2px solid var(--color-orange);
+      cursor: pointer;
+
 
       img{
         width: 100%;
         object-fit: fill;
       }
+
+    }
+`
+
+
+export const CartWrapper = styled.div`
+
+    position: absolute;
+    width: 20rem;
+    height: 12rem;
+    left: -12rem;
+
+    background:white;
+    box-shadow: 1px 5px 10px  4px rgba(0,0,0,.2);
+    
+    display: flex;
+    flex-direction: column;
+
+    h4{
+      border-bottom: 1px solid var(--color-grayish-blue);
+      line-height:3rem;
+      margin-left:1rem;
+     
     }
 
+    .empty{
+      width:100%;
+      height:100%;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .full{
+      width:100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+
+
+      .boxImage{
+        width:4rem;
+        height:4rem;
+        /* margin-right:1rem; */
+        img{
+          width: 100%;
+          object-fit: fill;
+        }
+      }
+
+
+      .descritionOfProduct{
+        border:1px solid red;
+        display: flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+      }
+    }
+
+
+
+    p{
+      text-align:center;
+      
+    }
+
+  button{
+   border: 1px solid red;
+  }
 `
