@@ -80,7 +80,6 @@ export const OtherImages = styled.div`
   .productSneakers:hover:before {
     background-color: #fff;
     filter: opacity(0.7);
-    /* border: 3px solid var(--color-orange); */
     border-radius: 0.5rem;
   }
 
@@ -92,7 +91,7 @@ export const OtherImages = styled.div`
   }
 `
 
-export const ContainerDescriptions = styled.div`
+export const ContainerDescriptions = styled.section`
   height: 30rem;
   padding-inline: 2rem;
 

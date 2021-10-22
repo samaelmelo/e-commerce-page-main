@@ -43,6 +43,7 @@ export const Global = createGlobalStyle`
   body{
     -webkit-font-smoothing: antialiased;
     background: var(---color-white);
+    /* overflow-x:hidden; */
   }
 
 
@@ -66,8 +67,88 @@ export const Global = createGlobalStyle`
     cursor: not-allowed;
   }
 
+ .react-modal-overlay{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+  
+    background: rgba(0,0,0,0.6);
+
+    display: grid;
+    place-items: center;
+    
+
+    transition: .3s ease;
+  }
 
 
+  .react-modal-content{
+    width: min(80%, 33rem);
+    height: min(50%,33rem);
+    position: relative;
+
+    transition: .3s ease;
+
+    outline:none;
+
+
+    .iconPrevious{
+      position: absolute;
+      left: -1.3rem;
+      top: 46%;
+      padding: 1rem;
+      background:#fff;
+      clip-path: circle();
+      line-height:none;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      cursor: pointer;
+
+      img{
+        width: 1rem;
+        line-height: none;
+      }
+    }
+
+    .iconNext{
+      position: absolute;
+      right: -1.3rem;
+      top: 46%;
+      padding: 1rem;
+      background:#fff;
+      clip-path: circle();
+      line-height:none;
+
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      cursor: pointer;
+
+      
+      img{
+        width: 1rem;
+        line-height: none;
+      }
+    }
+
+    .react-modal-image{
+      width: 100%;
+      height: 100%;      
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+      }
+    }
+
+  }
+
+   
 
 `
 

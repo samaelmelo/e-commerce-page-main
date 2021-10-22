@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Images } from '../../services/datas'
 
 import { Container, OtherImages, ContainerDescriptions } from './styles'
@@ -9,29 +9,44 @@ import plus from '../../assets/images/icon-plus.svg'
 import cart from '../../assets/images/icon-cart.svg'
 import {useCounter} from "../../Hook/useCounter"
 
-
-export const Main = () => {
+export const Main = ({openModal}) => {
   
-  const [imageMain, setImageMain] = useState(Images[0].img)
-  const {amount, setAmount } = useCounter(0)
+  const { setAmount , imageMain, setImageMain } = useCounter()
 
+ 
   const changeImageMiniatureOfDefault = (ev,item) => {
     const divs = document.querySelectorAll('.productSneakers')
     divs.forEach( div => {
         div.className = 'productSneakers'
     })    
     ev.target.className = 'productSneakers active'
-   
+
     return item.miniature ? setImageMain(item.img) : ''
   }
- 
+
+  
+  const {value,setTotal ,MinusOrPlus, setMinusOrPlus} = useCounter()
+
+  const handlePlusAmount = () => {
+    setMinusOrPlus(MinusOrPlus + 1)
+  }
+  
+  const handleMinusAmount = () => {
+    setMinusOrPlus(MinusOrPlus < 1 ? MinusOrPlus : MinusOrPlus -1)
+  }
+
+  const handleAddCart = () => {
+    setAmount(MinusOrPlus)
+    setTotal(value * MinusOrPlus)
+  }
+
   return (
     <>
       <Container>
-        <div className="containerImages">
+        <section className="containerImages">
 
           <div className="mainImage">
-            <img src={imageMain} alt="foto" />
+            <img src={imageMain} alt="foto" onClick={openModal} />
           </div>
 
           <OtherImages>
@@ -46,7 +61,7 @@ export const Main = () => {
                 </div>
               ))}
           </OtherImages>
-        </div>
+        </section>
 
         <ContainerDescriptions>
           <div className="center">
@@ -80,17 +95,18 @@ export const Main = () => {
 
             <Buttons>
               <div className="bntRemoveOrAdd">
-                <button onClick={() => setAmount(amount < 1 ? amount : amount - 1)}>
+                <button onClick={handleMinusAmount}>
                   <img src={minus} alt="minus" />
                 </button>
-                <strong>{amount}</strong>
-                <button onClick={() => setAmount(amount + 1)}>
+                <strong>{MinusOrPlus}</strong>
+  
+                <button onClick={handlePlusAmount}>
                   <img src={plus} alt="next" />
                 </button>
               </div>
 
               <div className="addToCart">
-                <button>
+                <button onClick={handleAddCart}>
                   <img src={cart} alt="" />
                   Add to cart
                 </button>
@@ -99,6 +115,7 @@ export const Main = () => {
           </div>
         </ContainerDescriptions>
       </Container>
+     
     </>
   )
 }
