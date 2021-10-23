@@ -30,6 +30,8 @@ export const Global = createGlobalStyle`
   }
 
   html{
+
+
     @media (max-width:1080px){
       font-size: 93.75%;  // (93,75 / 100) * 16px = 15px
     } 
@@ -43,7 +45,6 @@ export const Global = createGlobalStyle`
   body{
     -webkit-font-smoothing: antialiased;
     background: var(---color-white);
-    /* overflow-x:hidden; */
   }
 
 
@@ -87,14 +88,29 @@ export const Global = createGlobalStyle`
 
 
   .react-modal-content{
-    width: min(80%, 33rem);
-    height: min(50%,33rem);
+    width: min(80%, 23rem);
+    height: min(60%,33rem);
     position: relative;
 
+
+
+    /* transform: scale(1.1); */
     transition: .3s ease;
 
     outline:none;
 
+    animation: scale .3s ease forwards;
+
+    @keyframes scale {
+      from{ 
+        transform: scale(.8); 
+        opacity: 0;
+      }
+      to{
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
 
     .iconPrevious{
       position: absolute;
@@ -159,5 +175,10 @@ export const Container = styled.div`
   min-height: 100vh;
   
   padding: 1rem 2rem;
+
+
+  @media (max-width: 660px){
+    padding-inline:1rem;
+  }
 
 `

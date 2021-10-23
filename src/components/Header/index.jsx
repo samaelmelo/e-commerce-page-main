@@ -55,19 +55,19 @@ export const Header = () => {
           <div className='iconClose' onClick={handleToggleMenu}>
               <img src={IconClose} alt="icone de fechar" />
           </div>
-          <li>
+          <li onClick={handleToggleMenu}>
             <a href="#collections">Collections</a>
           </li>
-          <li>
+          <li onClick={handleToggleMenu}>
             <a href="#men">Men</a>
           </li>
-          <li>
+          <li onClick={handleToggleMenu}>
             <a href="#woman">Woman</a>
           </li>
-          <li>
+          <li onClick={handleToggleMenu}>
             <a href="#about">About</a>
           </li>
-          <li>
+          <li onClick={handleToggleMenu}>
             <a href="#contact">Contact</a>
           </li>
         </ul>

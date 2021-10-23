@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.main`
   width: min(1080px, 100%);
-
   display: grid;
   grid-template-columns: 1fr 1fr;
 
@@ -14,11 +13,17 @@ export const Container = styled.main`
     height: 30rem;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem; 
 
+    transition: .3s ease;
+
+    @media (max-width: 660px){
+      /* width: 80%; */
+
+    }
 
 
     .mainImage {
@@ -32,7 +37,7 @@ export const Container = styled.main`
 
       img {
         width: 100%;
-        object-fit: cover;
+        /* object-fit: cover; */
         border-radius: 0.4rem;
       }
     }
@@ -40,9 +45,25 @@ export const Container = styled.main`
 
   
   @media (max-width: 860px){
-    
-        grid-template-columns: 1fr;
-      
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+
+
+
+        .containerImages{
+          margin: 0 auto;
+          padding-inline: 9rem;
+
+          
+        }
+    }
+
+    @media (max-width: 560px){
+      .containerImages{
+        padding-inline:3rem;
+      }
     }
 `
 
@@ -58,6 +79,10 @@ export const OtherImages = styled.div`
     position: relative;
     cursor: pointer;
     border-radius: 0.5rem;
+
+    @media (max-width: 620px){
+        max-width: 4.22rem;
+    }
 
     &:before {
       content: '';
@@ -89,6 +114,9 @@ export const OtherImages = styled.div`
     border: 3px solid var(--color-orange);
     border-radius: 0.5rem;
   }
+
+
+ 
 `
 
 export const ContainerDescriptions = styled.section`
@@ -97,7 +125,7 @@ export const ContainerDescriptions = styled.section`
 
   .center {
     /* margin: 0 auto; */
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -163,6 +191,11 @@ export const Buttons = styled.div`
   width: 100%;
   min-width: 22rem;
 
+
+
+
+  
+  
   .bntRemoveOrAdd {
     display: flex;
     align-items: center;
@@ -181,7 +214,10 @@ export const Buttons = styled.div`
       border: none;
       background: transparent;
     }
+
   }
+
+
 
   .addToCart {
     min-width: 50%;
@@ -201,7 +237,7 @@ export const Buttons = styled.div`
       justify-content: center;
       gap: 1rem;
 
-      box-shadow:2px 5px 9px 2px #f2c8a9;;
+      box-shadow:2px 5px 9px 2px #f2c8a9;
       transition: 0.2s ease;
 
       &:hover {
@@ -213,5 +249,22 @@ export const Buttons = styled.div`
         width: 1.1rem;
       }
     }
+  }
+
+
+
+  @media (max-width: 720px){
+    flex-direction: column;
+    width: 100% !important; 
+    min-width: 50%;
+
+
+    .bntRemoveOrAdd {
+      width: 100%;
+    }
+
+    .addToCart {
+    width: 100%;
+    }    
   }
 `
