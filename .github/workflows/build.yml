@@ -9,14 +9,14 @@ jobs:
   deploy:
       runs-on: ubuntu-18.04
       steps:
-          - use: actions/checkout@v2
-          - use: actions/setup-node@v1
+          - uses: actions/checkout@v2
+          - uses: actions/setup-node@v1
             with:
               node-version: '14.x'
           - name: Build web-app
             run: |
-              yarn ci
-              yarn build
+              npm ci
+              npm build
           - name: Deploy to gh-pages
             uses: peaceiris/actions-gh-pages@v3
             with: 
