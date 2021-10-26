@@ -56,8 +56,9 @@ Este projeto foi desenvolvido com as tecnologias abaixo:
 
 Este projeto está sob a licença MIT abaixo. Leia sobre [LICENSE](./LICENSE) para mais informações.
 
-Veja aplicação (online)[https://ecommerce-one-page.netlify.app/]
+
 
 ---
+Veja aplicação [online](https://ecommerce-one-page.netlify.app/)
 
 Desenvolvido por Samael Melo .
